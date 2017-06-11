@@ -16,7 +16,7 @@ class ProductDjangoItem(models.Model):
 
 
 class ProductReviewDjangoItem(models.Model):
-    productId = models.ForeignKey(ProductDjangoItem)
+    productId = models.ForeignKey(ProductDjangoItem, on_delete=models.CASCADE)
     ratingValue = models.CharField(max_length=100)
     datePublished = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
