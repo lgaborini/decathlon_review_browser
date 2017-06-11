@@ -1,3 +1,10 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+<title>Products in database</title>
+{% endblock %}
+
+{% block content %}
 <h1>Products in database:</h1>
 {% if list_of_products %}
     <ul>
@@ -8,3 +15,5 @@
 {% else %}
     <p>No items are available.</p>
 {% endif %}
+
+{% endblock %}

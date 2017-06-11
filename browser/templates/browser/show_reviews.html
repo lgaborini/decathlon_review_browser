@@ -1,3 +1,10 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+<title>Reviews for product {{this_product.productName}}</title>
+{% endblock %}
+
+{% block content %}
 <h2>Reviews for product {{this_product.productName}}:</h2>
 
 {% if list_of_reviews %}
@@ -12,3 +19,5 @@
 {% else %}
     <p>No reviews are available.</p>
 {% endif %}
+
+{% endblock %}
