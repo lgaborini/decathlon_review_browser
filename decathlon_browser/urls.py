@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^items/([0-9]+)/$', views.product_view),
-    url(r'^bootstrap_test$',
-        TemplateView.as_view(
-            template_name='browser/hello_world_bootstrap.html'),
-        name='about'),
+    # url(r'^bootstrap_test$',
+    #     TemplateView.as_view(
+    #         template_name='browser/hello_world_bootstrap.html'),
+    #     name='about'),
 ]
