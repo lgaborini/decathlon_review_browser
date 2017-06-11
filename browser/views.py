@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from .models import ProductDjangoItem, ProductReviewDjangoItem
 
-from django.http import HttpResponse
-
 import logging
 logger = logging.getLogger(__name__)
 
 
 def index(request):
+    """View list of products"""
     logger.info('Requested index.')
 
     list_of_products = ProductDjangoItem.objects.all()
@@ -18,6 +17,7 @@ def index(request):
 
 
 def product_view(request, productId):
+    """View all reviews for a given product"""
     logger.info('Requested product view for product {0}.'.format(productId))
 
     this_product = ProductDjangoItem.objects.get(productId=productId)
@@ -28,4 +28,3 @@ def product_view(request, productId):
     context['list_of_reviews'] = list_of_reviews
 
     return render(request, 'browser/show_reviews.html', context)
-    return HttpResponse('Requested product view for product {0}.'.format(productId))

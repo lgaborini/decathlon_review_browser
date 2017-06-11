@@ -5,14 +5,31 @@
 {% endblock %}
 
 {% block content %}
-<h2>Reviews for product {{this_product.productName}}:</h2>
+<div class="review_pagetitle col-md-12">
+	<h2>Reviews for product {{this_product.productName}}:</h2>
+</div>
 
 {% if list_of_reviews %}
-<div class="review_list">{% for review in list_of_reviews %}
-	<div class='review_container'>
-		<div></div>
-		<div class="review_title"> {{ review.reviewTitle }} </div>
-	    <div class="review_text"> {{ review.review }} </div>
+<div class="review_list col-sm-8">
+	{% for review in list_of_reviews %}
+	<div class='review_container panel panel-primary'>
+		<div class="panel-heading">
+			<div class="review_title panel-title"> {{ review.reviewTitle }} </div>
+		</div>
+
+		<div class='review_bonusmalus_container'>
+		{% if review.reviewBonus %}
+			<h5><span class="label label-success" style="margin-left: 1%">Bonus</span> {{ review.reviewBonus }} </h5>
+		{% endif %}
+		{% if review.reviewMalus %}
+			<h5><span class="label label-danger" style="margin-left: 1%">Malus</span> {{ review.reviewMalus }} </h5>
+		{% endif %}
+		</div>
+
+	    <div class="review_text panel-body"> {{ review.review }} </div>
+	    {% if review.reviewReply %}
+		<div class="review_reply well" style="width: 80%; margin-left: 5%"> {{ review.reviewReply }} </div>
+	    {% endif %}
 	</div>
 	{% endfor %}
 </div>
