@@ -5,8 +5,8 @@ class ProductInQueue(models.Model):
     productUrl = models.URLField()
 
 
-class Product(models.Model):
-    productId = models.CharField(max_length=100)
+class ProductDjangoItem(models.Model):
+    productId = models.CharField(max_length=100, primary_key=True)
     productName = models.CharField(max_length=100)
     last_fetched = models.DateTimeField()
     productUrl = models.URLField()
@@ -15,8 +15,8 @@ class Product(models.Model):
         return self.productName
 
 
-class ProductReview(models.Model):
-    productId = models.ForeignKey(Product)
+class ProductReviewDjangoItem(models.Model):
+    productId = models.ForeignKey(ProductDjangoItem)
     ratingValue = models.CharField(max_length=100)
     datePublished = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
@@ -27,4 +27,4 @@ class ProductReview(models.Model):
     reviewMalus = models.CharField(max_length=100)
     reviewTitle = models.CharField(max_length=100)
     reviewReply = models.CharField(max_length=10960)
-    fit = models.CharField(max_length=100)
+    fit = models.CharField(max_length=100, null=True)
