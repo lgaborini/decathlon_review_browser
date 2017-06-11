@@ -1,11 +1,14 @@
-<h2>Reviews for product {{this_product.productName}}:</h2> 
+<h2>Reviews for product {{this_product.productName}}:</h2>
 
 {% if list_of_reviews %}
-    <ul>
-    {% for review in list_of_reviews %}
-        <p> {{ review.review }} </p>
-    {% endfor %}
-    </ul>
+<div class="review_list">{% for review in list_of_reviews %}
+	<div class='review_container'>
+		<div></div>
+		<div class="review_title"> {{ review.reviewTitle }} </div>
+	    <div class="review_text"> {{ review.review }} </div>
+	</div>
+	{% endfor %}
+</div>
 {% else %}
     <p>No reviews are available.</p>
 {% endif %}
