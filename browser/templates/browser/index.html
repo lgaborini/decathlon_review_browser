@@ -9,7 +9,7 @@
 {% if list_of_products %}
     <ul>
     {% for product in list_of_products %}
-        <li><a href="/items/{{ product.productId }}/">{{ product.productName }}</a></li>
+        <li><a href="/items/{{ product.productId }}/">{{ product.productName }}</a> (updated: {{ product.last_fetched }})</li>
     {% endfor %}
     </ul>
 {% else %}

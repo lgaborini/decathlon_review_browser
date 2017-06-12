@@ -26,5 +26,6 @@ def product_view(request, productId):
     context = dict()
     context['this_product'] = this_product
     context['list_of_reviews'] = list_of_reviews
+    context['number_of_reviews'] = len(list_of_reviews)
 
     return render(request, 'browser/show_reviews.html', context)

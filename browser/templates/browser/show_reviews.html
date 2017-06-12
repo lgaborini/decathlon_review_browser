@@ -6,15 +6,24 @@
 
 {% block content %}
 <div class="review_pagetitle col-md-12">
-	<h2>Reviews for product {{this_product.productName}}:</h2>
+	<h2> {{ number_of_reviews}} reviews for product {{this_product.productName}}:</h2>
 </div>
 
 {% if list_of_reviews %}
-<div class="review_list col-sm-8">
+	<div class="review_list col-sm-8">
 	{% for review in list_of_reviews %}
 	<div class='review_container panel panel-primary'>
 		<div class="panel-heading">
-			<div class="review_title panel-title"> {{ review.reviewTitle }} </div>
+			<div class="review_title panel-title">
+				{% if review.ratingValue %}
+				<span class="rating">
+					{% for i in "x"|rjust:review.ratingValue %}
+						<span>★</span>
+					{% endfor %}
+				</span>
+				{% endif %}
+				{{ review.reviewTitle }}
+			</div>
 		</div>
 
 		<div class='review_bonusmalus_container'>
@@ -32,7 +41,7 @@
 	    {% endif %}
 	</div>
 	{% endfor %}
-</div>
+	</div>
 {% else %}
     <p>No reviews are available.</p>
 {% endif %}
