@@ -5,15 +5,34 @@
 {% endblock %}
 
 {% block content %}
-<h1>Products in database:</h1>
-{% if list_of_products %}
-    <ul>
-    {% for product in list_of_products %}
-        <li><a href="/items/{{ product.productId }}/">{{ product.productName }}</a> (updated: {{ product.last_fetched }})</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No items are available.</p>
-{% endif %}
-
+	
+	<div class='page-header'><h2>Products in database:</h2></div>
+	
+	<div class="col-md-12">    
+	{% if list_of_products %}
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Product name</th>
+				<th>Last updated</th>
+				{# <th>Number of reviews</th> #}
+				{# <th>Average rating</th> #}
+		</tr></thead>
+		<tbody>
+		{% for product in list_of_products %}
+		    <tr>
+		    <td>{{forloop.counter}}</td>
+		    <td><a href="/items/{{ product.productId }}/">{{ product.productName }}</a></td>
+		    <td>{{ product.last_fetched }}</td>
+		    {# <td></td> #}
+		    {# <td></td> #}
+		    </tr>
+		{% endfor %}
+		</tbody>
+		</table>
+	{% else %}
+	    <div class="alert alert-danger" role="alert"><strong>No items are available.</strong></div>
+	{% endif %}
+	</div>
 {% endblock %}
