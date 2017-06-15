@@ -9,7 +9,12 @@ An extension to programmatically run Scrapy is planned.
 
 The project defines also the [schema](browser/models.py) for `Items` obtained using Scrapy: 
 
-# Usage:
+# Usage:   
+See Django documentation on the first run of a Django site.
+
+> python manage.py runserver   
+
+Connect on `http://127.0.0.1:8000/`.
 
 ## Tested under:
 * Anaconda Python 4.2.13
