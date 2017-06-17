@@ -10,6 +10,11 @@ def index(request):
     logger.info('Requested index.')
 
     list_of_products = ProductDjangoItem.objects.all()
+
+    # Add the thumbnail to each product item
+    for p in list_of_products:
+        p.productThumbnailUrl = p.productImageUrl.replace('big', 'classic')
+
     context = dict()
     context['list_of_products'] = list_of_products
 

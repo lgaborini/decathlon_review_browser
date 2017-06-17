@@ -11,6 +11,7 @@ class ProductDjangoItem(models.Model):
     last_fetched = models.DateTimeField()
     productUrl = models.URLField()
     productPrice = models.DecimalField(max_digits=5, decimal_places=2)
+    productImageUrl = models.URLField()
 
     def __str__(self):
         return self.productName

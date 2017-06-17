@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="review_pagetitle">
-	<h2> {{ number_of_reviews}} reviews for product {{this_product.productName}}:</h2>
+	<h2> {{ number_of_reviews}} reviews for product <a href="https://www.decathlon.it/it/search-https?searchedText={{this_product.productId}}">{{this_product.productName}}</a>:</h2>
 </div>
 
 {% if list_of_reviews %}

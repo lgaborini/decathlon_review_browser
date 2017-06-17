@@ -26,6 +26,6 @@ Connect on `http://127.0.0.1:8000/`.
 
 ## TODO:
 
-- [ ] Add product image display
-- [ ] Add product image thumbnails in review list
+- [x] Add product image display
+- [x] Add product image thumbnails in review list
 - [ ] Launch the Scrapy scraper (using Celery?)
