@@ -28,6 +28,8 @@ Connect on `http://127.0.0.1:8000/`.
 
 - [x] Add product image display
 - [x] Add product image thumbnails in review list
+- [x] Avoid scraping same reviews if scraper is rerun (created a PrimaryKey)
+- [ ] Make `ProductReviewDjangoItem` JSON serializable
 - [ ] Add Translate button next to reviews
 - [ ] Add sort columns in review/product list
 - [ ] Add product image in review list
