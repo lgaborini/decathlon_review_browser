@@ -23,7 +23,7 @@
 				</span>
 				{% endif %}
 				{{ review.reviewTitle }}
-				<span class="reviewDate">(Published: {{ review.datePublished }})</span>
+				<span class="reviewDate">(Published: {{ review.datePublished|date:'Y-m-d' }})</span>
 			</div>
 		</div>
 
