@@ -18,7 +18,7 @@
 				<th>Product name</th>
 				<th>Last updated</th>
 				<th>Price</th>
-				{# <th>Number of reviews</th> #}
+				<th>Number of reviews</th>
 				{# <th>Average rating</th> #}
 		</tr></thead>
 		<tbody>
@@ -29,7 +29,7 @@
 		    <td><a href="/items/{{ product.productId }}/">{{ product.productName }}</a></td>
 		    <td>{{ product.last_fetched }}</td>
 		    <td>{{ product.productPrice }}€</td>
-		    {# <td></td> #}
+		    <td>{{ product.numberOfReviews }}</td>
 		    {# <td></td> #}
 		    </tr>
 		{% endfor %}

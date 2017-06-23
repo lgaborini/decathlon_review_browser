@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Count
 from .models import ProductDjangoItem, ProductReviewDjangoItem
 
 import logging
@@ -9,10 +10,12 @@ def index(request):
     """View list of products"""
     logger.info('Requested index.')
 
-    list_of_products = ProductDjangoItem.objects.all()
+    list_of_products = ProductDjangoItem.objects.all().annotate(numberOfReviews=Count('productreviewdjangoitem'))
 
-    # Add the thumbnail to each product item
+    # Add other elements to each product item
     for p in list_of_products:
+
+        # Remote thumbnail
         p.productThumbnailUrl = p.productImageUrl.replace('big', 'classic')
 
     context = dict()
@@ -27,7 +30,8 @@ def product_view(request, productId):
 
     this_product = ProductDjangoItem.objects.get(productId=productId)
 
-    list_of_reviews = ProductReviewDjangoItem.objects.filter(productId=productId)
+    list_of_reviews = ProductReviewDjangoItem.objects.filter(
+        productId=productId)
     context = dict()
     context['this_product'] = this_product
     context['list_of_reviews'] = list_of_reviews
