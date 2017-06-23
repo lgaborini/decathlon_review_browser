@@ -31,7 +31,7 @@ def product_view(request, productId):
     this_product = ProductDjangoItem.objects.get(productId=productId)
 
     list_of_reviews = ProductReviewDjangoItem.objects.filter(
-        productId=productId)
+        productId=productId).order_by('datePublished')
     context = dict()
     context['this_product'] = this_product
     context['list_of_reviews'] = list_of_reviews

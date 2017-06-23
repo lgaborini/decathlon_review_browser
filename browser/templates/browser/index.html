@@ -16,7 +16,7 @@
 				<th>#</th>
 				<th>Image</th>
 				<th>Product name</th>
-				<th>Last updated</th>
+				<th>Last fetched</th>
 				<th>Price</th>
 				<th>Number of reviews</th>
 				{# <th>Average rating</th> #}
@@ -27,7 +27,7 @@
 		    <td>{{forloop.counter}}</td>
 		    <td><img src=" {{ product.productThumbnailUrl }} " width="100" /></td>
 		    <td><a href="/items/{{ product.productId }}/">{{ product.productName }}</a></td>
-		    <td>{{ product.last_fetched }}</td>
+		    <td>{{ product.last_fetched|date }}</td>
 		    <td>{{ product.productPrice }}€</td>
 		    <td>{{ product.numberOfReviews }}</td>
 		    {# <td></td> #}
